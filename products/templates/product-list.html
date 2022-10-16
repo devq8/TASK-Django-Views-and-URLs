@@ -23,6 +23,7 @@
             <th scope="col">Product Name</th>
             <th scope="col">Price</th>
             <th scope="col">Description</th>
+            <th scope="col">Link</th>
           </tr>
         </thead>
         <tbody>
@@ -31,6 +32,11 @@
             <td>{{product.name}}</td>
             <td>{{product.price}}</td>
             <td>{{product.description}}</td>
+            <td>
+              <a class="btn btn-primary" href="./{{product.id}}" role="button"
+                >Details</a
+              >
+            </td>
           </tr>
           {% endfor %}
         </tbody>

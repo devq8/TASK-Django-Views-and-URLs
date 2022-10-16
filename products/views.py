@@ -11,9 +11,9 @@ def get_home(request):
 def get_product(request, product_id):
     # all_products = Product.objects.all()
     product = Product.objects.get(id=product_id)
-    product_massage = ("<p>The selected product details are below</p>\n"
-        f"\n <p>The product id is : {product.id}</p>"
-        f"\n <p>The product name is : {product.name}</p>")
+
+
+
 
     # Convert object to dictionary.
     context = {
@@ -32,6 +32,7 @@ def get_products(request):
     new_products = []
     for product in all_products:
         new_products.append({
+            "id": product.id,
             "name": product.name,
             "price": product.price,
             "description": product.description

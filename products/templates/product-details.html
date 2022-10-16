@@ -34,6 +34,7 @@
             class="form-control"
             id="validationCustom01"
             value="{{product.name}}"
+            disabled
           />
         </div>
         <div class="col-md-4">
@@ -43,18 +44,24 @@
             class="form-control"
             id="validationCustom01"
             value="{{product.price}}"
+            disabled
           />
         </div>
 
         <div class="col-md-12">
           <label for="validationCustom03" class="form-label">Description</label>
-          <textarea type="text" class="form-control" id="validationCustom03">
+          <textarea
+            type="text"
+            class="form-control"
+            id="validationCustom03"
+            disabled
+          >
 {{product.description}}</textarea
           >
         </div>
 
         <div class="col-12">
-          <button class="btn btn-primary">Back</button>
+          <a class="btn btn-primary" onclick="history.back()">Back</a>
         </div>
       </form>
     </div>
