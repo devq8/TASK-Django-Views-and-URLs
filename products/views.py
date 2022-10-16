@@ -1,3 +1,5 @@
+from math import prod
+from multiprocessing import context
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Product
@@ -13,5 +15,29 @@ def get_product(request, product_id):
         f"\n <p>The product id is : {product.id}</p>"
         f"\n <p>The product name is : {product.name}</p>")
 
+    # Convert object to dictionary.
+    context = {
+        "product": {
+            "name": product.name,
+            "description": product.description,
+            "price": product.price
+        }
+    }
 
-    return HttpResponse(f"<h1>{product_massage}</h1>")
+    return render(request, "product-details.html", context)
+
+def get_products(request):
+    all_products = Product.objects.all()
+
+    new_products = []
+    for product in all_products:
+        new_products.append({
+            "name": product.name,
+            "price": product.price,
+            "description": product.description
+        })
+
+
+    context = {"product": new_products}
+
+    return render(request, "product-list.html", context)
