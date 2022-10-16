@@ -38,6 +38,6 @@ def get_products(request):
         })
 
 
-    context = {"product": new_products}
+    context = {"products": new_products}
 
     return render(request, "product-list.html", context)
